@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ICourseDAO">
+	<insert id="insert">
+		INSERT INTO course(cTeacherId,cTeacherName,cCourseId,cCourseName,cClassHours)  VALUES (#{cTeacherId},#{cTeacherName},#{cCourseId},#{cCourseName},#{cClassHours})
+	</insert>
+	
+	<delete id="delete">
+		DELETE FROM course WHERE cCourseId =#{cCourseId}
+	</delete>
+	
+	<update id="update">
+		UPDATE  course SET cTeacherId=#{cTeacherId},cTeacherName=#{cTeacherName},cCourseName=#{cCourseName},cClassHours=#{cClassHours} WHERE cCourseId=#{cCourseId}
+	</update>
+	
+	<select id="query" resultType="vo.Course">
+		select * from course where cTeacherId=#{cTeacherId}
+	</select>
+</mapper>
